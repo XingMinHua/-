@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+          * {
+            padding: 0;
+            margin: 0;
+
+        }
+        #box {
+            width: 1000px;
+            height: 300px;
+            background: -webkit-linear-gradient(top right, pink,rgb(70, 223, 223),rgb(255, 243, 131));
+            line-height: 300px;
+            text-align: center;
+            font-size: 50px;
+            font-weight: 500;
+            margin: 100px auto;;
+            color:white;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        var box=document.getElementById('box');
+        var endTime=new Date('2019-11-13 18:00');
+        var num=null;
+
+        function addZero(val){
+            if(val<10){   //如果传进来的数小于10  那就给他补0
+                return '0'+val
+            }else{
+                return val
+            }
+        }
+        setTime();
+        function setTime(){
+            let time=new Date();
+            let diffTime=endTime-time;
+
+            if(diffTime<=0){
+                clearInterval(setTime)
+                box.innerText='时间到';
+                return;
+            }
+
+            let hour=Math.floor(diffTime/1000/60/60);
+            let min=Math.floor((diffTime-hour*60*60*1000)/1000/60);
+            let sec=Math.floor((diffTime-hour*60*60*1000-min*60*1000)/1000);
+
+            var value=addZero(hour)+'时'+addZero(min)+'分'+addZero(sec)+'秒'
+            box.innerText=value
+        }
+
+        num=setInterval(setTime);
+    </script>
+</body>
+</html>

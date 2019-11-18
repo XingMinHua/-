@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    </style>
+</head>
+<body>
+    <div>
+        <div style="width: 300px;height: 200px;border: 1px solid ;background: #cccccc;margin-left: 300px;margin-top: 300px;padding-top: 100px;">
+            <span id="box" style="margin-left: 85px;margin-top: 300px;">验证码</span>
+            <input id="btn" type="button" value="看不清" style="margin-left: 20px;">
+            <input id="put" type="text" style="margin-top: 50px;margin-left: 65px;">
+        </div>
+    </div>
+    <script>
+        var box=document.getElementById('box');
+        var btn=document.getElementById('btn');
+        var put=document.getElementById('put');
+
+        btn.onclick=function(){
+            fn();
+        }
+
+        put.onblur=function(){
+            var box1=box.innerText.toLowerCase();
+            var put1=put.value.toLowerCase();
+            if(box1===put1){
+                alert('验证成功')
+            }else{
+                alert('验证失败')
+            }
+        }
+
+        function fn(){
+            var ary='123456789QWERTYUIPasdfhgklzxnmCVB';
+            var newList='';
+            for(var i=0;i<4;i++){
+                var sjshu=Math.round(Math.random()*(ary.length-1-0)+0);
+                var item=ary[sjshu];
+                newList+=item;
+            }
+            box.innerText=newList;
+            console.log(newList);
+        }
+        fn();
+    </script>
+</body>
+</html>

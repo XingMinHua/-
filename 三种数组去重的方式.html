@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1 splice 分别对比去重
+        // var ary=[10,20,10,10,20,30,40,50,50,40,40,30];
+        // for(var i=0;i<ary.length;i++){
+        //     var item=ary[i]
+        //     for(var j=i+1;j<ary.length;j++){
+        //         var lis=ary[j];
+        //         if(item===lis){
+        //             ary.splice(i,1);
+        //             i--;
+        //         }
+        //     }
+        // }
+        // console.log(ary)
+        // 2 includes 是否存在去重
+        // var ary=[10,20,10,10,20,30,40,50,50,40,40,30];
+        // var newAry=[]
+        // for(var i=0;i<ary.length;i++){
+        //     var item=ary[i];
+        //     if(!newAry.includes(item)){
+        //         newAry.push(item);
+        //     }
+        // }
+        // console.log(newAry)
+        // 3 利用键值对使数组去重
+        // var ary=[10,20,10,10,20,30,40,50,50,40,40,30];
+        // var newAry={};
+        // for(var i=0;i<ary.length;i++){
+        //     var item=ary[i];
+        //     if(newAry[item]!==undefined){
+        //         ary.splice(i,1);
+        //         i--;
+        //     }else{
+        //         newAry[item]=item;
+        //     }
+        // }
+        // console.log(ary);
+        // console.log(newAry);
+
+    </script>
+</body>
+</html>

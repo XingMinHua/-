@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var url='https://www.baidu.com?name=erYa&age=18&sex=girl#index';
+        var index=url.indexOf('?');  //找到?的下标
+        var lastof=url.lastIndexOf('#')
+        var parmas=url.substring(index+1,lastof); //截取从index到lastof的字符
+        var ary=parmas.split('&')   //将截取的字符串 由&分割为数组
+        var obj={};
+        for(var i=0;i<ary.length;i++){
+            var newAry=ary[i].split('=');  //截取的每项数组 又以=号分割为数组
+            console.log(newAry)
+            obj[newAry[0]]=newAry[1]
+        }
+        obj.girl='index'
+        console.log(obj)
+    </script>
+</body>
+</html>

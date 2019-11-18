@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>小时钟</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+
+        }
+        #box {
+            width: 1000px;
+            height: 300px;
+            background: -webkit-linear-gradient(top right, pink,rgb(70, 223, 223),rgb(255, 243, 131));
+            line-height: 300px;
+            text-align: center;
+            font-size: 50px;
+            font-weight: 500;
+            margin: 100px auto;;
+            color:white;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        var box=document.getElementById('box');
+
+
+        function addZero(val){
+            if(val<10){   //如果传进来的数小于10  那就给他补0
+                return '0'+val
+            }else{
+                return val
+            }
+        }
+
+        function trans(val){
+            let obj={
+                0:'日',
+                1:'一',
+                2:'二',
+                3:'三',
+                4:'四',
+                5:'五',
+                6:'六',
+            }
+            return obj[val]
+        }
+
+        setTime();
+
+        function setTime(){
+            let time=new Date();  //获取当前时间
+            let year=time.getFullYear();
+            let month=time.getUTCMonth()+1;
+            let date=time.getUTCDate();
+            let day=time.getDay();
+            let hour=time.getHours();
+            let min=time.getMinutes();
+            let sec=time.getSeconds();
+
+            let value=year+'年'+addZero(month)+'月'+addZero(date)+'日 星期' + trans(day)+''+addZero(hour)+'时'+addZero(min)+'分'+addZero(sec)+'秒';
+            
+            box.innerText=value;
+
+            setInterval(setTime,1000)
+        }
+    </script>
+</body>
+</html>

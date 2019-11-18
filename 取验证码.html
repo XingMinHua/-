@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        #box {
+            width: 500px;
+            margin: 100px auto;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div>
+            <span id="show">放验证码</span>
+            <button id="btn">看不清</button>
+        </div>
+        <input type="text" id="input">
+        <script>
+            var show=document.getElementById('show');
+            var btn=document.getElementById('btn');
+            var pit=document.getElementById('input');
+
+            btn.onclick=function(){
+                fn();
+            }
+            pit.onblur=function(){
+                var input=pit.value.toLowerCase();
+                var inshow=show.innerText.toLowerCase();
+                if(input===inshow){
+                    alert('验证成功');
+                    console.log('太棒了你');
+                    fn();
+                    pit.value='';
+                }else{
+                    alert('验证失败 请重新输入！')
+                    console.log('太蠢了你')
+                    pit.value='';
+                    fn();
+                }
+            }
+            fn();
+            fn();
+            function fn(){
+                var str='1234567890ASDFGHJLKasdfghjkl';
+                var value='';
+                for(var i=0;i<4;i++){
+                    let index=Math.round(Math.random()*(str.length-1-0)+0)
+                    let ss=str[index]
+                    value+=ss;
+                }
+                show.innerText=value;
+            }
+
+        </script>
+    </div>
+</body>
+</html>

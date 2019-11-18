@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        div {
+            width: 700px;
+            margin: 100px auto;
+            position: relative;
+            opacity: 0;
+            transition: 1s all;
+        }
+        img {
+            display: block;
+            width: 100%;
+        }
+        span {
+            cursor: pointer;
+            position: absolute;
+            top:0;
+            right:0;
+            font-size: 30px;
+            color: orangered;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <span id="btn">关闭</span>
+        <img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2833557009,4081302457&fm=26&gp=0.jpg" alt="">
+    </div>
+    <script>
+        
+        var box=document.getElementById('box');
+        var btn=document.getElementById('btn')
+
+        setTimeout(()=>{
+            box.style.opacity='1'
+        },5000)
+
+        btn.onclick=function(){
+            box.style.opacity=0;
+        }
+    </script>
+</body>
+</html>
